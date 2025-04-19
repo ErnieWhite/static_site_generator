@@ -43,6 +43,13 @@ def split_nodes_delimiter(old_nodes: TextNode, delimiter, text_type):
         tokens = old_node.text.split(delimiter)
         if len(tokens) % 2 != 1:
             raise SyntaxError(f'Matching delimiter "{delimiter}" not found')
+        new_nodes.extend(
+            [
+                TextNode(tokens[0], TextType.TEXT),
+                TextNode(tokens[1], text_type),
+                TextNode(tokens[2], TextType.TEXT)
+            ]
+        )
 
     return new_nodes
 
