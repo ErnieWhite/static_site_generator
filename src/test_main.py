@@ -41,7 +41,7 @@ class TestMain(unittest.TestCase):
         self.assertEqual(html_node.value, text)
         self.assertEqual(html_node.props["href"], url)
 
-    def text_text_node_to_html_example(self):
+    def text_text_node_to_html_example_2(self):
         node = TextNode("This is text with a `code block` word", TextType.TEXT)
         new_nodes = split_nodes_delimiter([node], "`", TextType.CODE)
         self.assertEqual(
@@ -72,6 +72,7 @@ class TestMain(unittest.TestCase):
         split_nodes = split_nodes_delimiter([node], delimiter, TextType.BOLD)
         self.assertEqual(
             [
+                TextNode("", TextType.TEXT),
                 TextNode("bold", TextType.BOLD),
                 TextNode(" at the start", TextType.TEXT)
             ],
