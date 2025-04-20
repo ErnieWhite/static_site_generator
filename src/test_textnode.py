@@ -1,8 +1,5 @@
 import unittest
-
-from src.textnode import extract_markdown_images
 from textnode import TextNode, TextType
-
 
 
 class TestTextNode(unittest.TestCase):
