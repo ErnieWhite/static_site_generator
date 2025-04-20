@@ -1,5 +1,6 @@
 from htmlnode import LeafNode
 from enum import Enum
+import re
 
 class TextType(Enum):
     BOLD = "bold"
@@ -42,3 +43,9 @@ def text_node_to_html_node(text_node: TextNode):
         return LeafNode(tag="img", value="", props={"src": text_node.url, "alt": text_node.text})
 
     raise ValueError(f"{text_node.text_type} is not implemented")
+
+def extract_markdown_images(text):
+    return re.findall(r"!\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
+
+def extract_markdown_links(text):
+    return re.findall(r"(?<!!)\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
