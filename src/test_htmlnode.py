@@ -45,7 +45,7 @@ class TestHTMLNode(unittest.TestCase):
         )
         self.assertEqual(
             node.__repr__(),
-            "HTMLNode(p, What a stronge world, children: {'class': 'primary'})",
+            "HTMLNode(p, What a strange world, children: None, {'class': 'primary'})",
         )
 
     def test_leaf_to_html_p(self):
@@ -66,7 +66,7 @@ class TestHTMLNode(unittest.TestCase):
         node = LeafNode(None, "Hello, world!")
         self.assertEqual(
             node.to_html(),
-            "Hello, World!",
+            "Hello, world!",
         )
 
     def test_to_html_with_children(self):
